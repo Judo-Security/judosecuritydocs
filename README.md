@@ -358,7 +358,7 @@ npm install -g @judosecurity/judo-node-client
 
   
 
-!![email,password](/images/7.png)
+![email,password](/images/7.png)
 
   
 
@@ -491,7 +491,7 @@ Alternatively, users can view all the audit logs belonging to all the secrets fr
 
   
 
-!![audit logs of all users](/images/16.png)
+![audit logs of all users](/images/16.png)
 
   
 
@@ -558,7 +558,7 @@ User also has to define the access policy they want to use to govern the secret.
 
   
 
-!![create secret](/images/18.png)
+![create secret](/images/18.png)
 
   
 
