@@ -49,8 +49,7 @@ A client can register their organization by visiting the [Judo Security website]
 
 <p align="center">
     ![login](/images/login.png)
-
-    <img src="/images/login.png">
+    <img src="https://github.com/Judo-Security/judosecuritydocs/tree/master/images/login.png"/>
 </p>
 
 ![img](blob:https://judosecurity.atlassian.net/c732457a-1b1a-4dcc-842e-b948345590fc#media-blob-url=true&id=8f7e1f6b-a946-485c-a1cf-da4339059f3a&collection=contentId-361889800&contextId=361889800&mimeType=image%2Fpng&name=image-20200728-064249.png&size=32071&width=440&height=656)
