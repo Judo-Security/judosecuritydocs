@@ -292,7 +292,7 @@ The CLI client, however, needs to be configured after installation on user syste
 
   
 
-1. Install the Node.js and check version by entering **node –v**
+1) Install the Node.js and check version by entering **node –v**
 
   
 
@@ -300,13 +300,13 @@ The CLI client, however, needs to be configured after installation on user syste
 
   
 
-2. Open the following link from the **“User profile”** of the Judo Security.
+2) Open the following link from the **“User profile”** of the Judo Security.
 
 https://www.npmjs.com/package/@judosecurity/judo-node-client
 
   
 
-3. Client setup
+3) Client setup
 
 Use NPM to install the judo client globally
 
@@ -320,13 +320,13 @@ npm install -g @judosecurity/judo-node-client
 
   
 
-4. Open the **judo-node-client** folder by using the following path:
+4) Open the **judo-node-client** folder by using the following path:
 
 **C:\Users\AI\AppData\Roaming\npm\node_modules\@judosecurity\judo-node-client**
 
   
 
-5. Copy the above path and paste it in PowerShell using cd and press Enter.
+5) Copy the above path and paste it in PowerShell using cd and press Enter.
 
   
 
@@ -334,7 +334,7 @@ npm install -g @judosecurity/judo-node-client
 
   
 
-6. Open **.config** folder from **Judo-node-client** folder
+6) Open **.config** folder from **Judo-node-client** folder
 
   
 
@@ -342,7 +342,7 @@ npm install -g @judosecurity/judo-node-client
 
   
 
-7. Open **service.json** file
+7) Open **service.json** file
 
   
 
@@ -350,11 +350,11 @@ npm install -g @judosecurity/judo-node-client
 
   
 
-8. Copy the link: [**https://stagging.judosecurity.com**](https://stagging.judosecurity.com/) and open it in new tab.
+8) Copy the link: [**https://stagging.judosecurity.com**](https://stagging.judosecurity.com/) and open it in new tab.
 
   
 
-9. Enter the email id and password.
+9) Enter the email id and password.
 
   
 
@@ -362,7 +362,7 @@ npm install -g @judosecurity/judo-node-client
 
   
 
-10. Download the **client.json** file from the "User Profile" of Judo security by clicking on the "Download Client Configuration" button.
+10) Download the **client.json** file from the "User Profile" of Judo security by clicking on the "Download Client Configuration" button.
 
   
 
@@ -370,7 +370,7 @@ npm install -g @judosecurity/judo-node-client
 
   
 
-11. Copy the storage key from the downloaded client.json file and paste it in **client.json** file of client setup (Path: C:\Users\AI\AppData\Roaming\npm\node_modules\@judosecurity\judo-node-client)
+11) Copy the storage key from the downloaded client.json file and paste it in **client.json** file of client setup (Path: C:\Users\AI\AppData\Roaming\npm\node_modules\@judosecurity\judo-node-client)
 
   
 
