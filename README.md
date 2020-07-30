@@ -1,4 +1,4 @@
-# ![logo](/images/logo.png) Judo User Documentation 
+# ![logo](/images/logo.png) ->Judo User Documentation<-
 
 The following document provides an overview of Judo Security's patented secrets management solution. It provides a walk through for all of Judo's features and how to use its unique solution for securing user data objects. The document also talks about various Judo clients and how to use them.
 
