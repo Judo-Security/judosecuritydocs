@@ -47,7 +47,10 @@ Allows companies that have traditionally relied on platform specific approach to
 
 A client can register their organization by visiting the [Judo Security website](http://www.judosecurity.com/) and clicking on “Sing In” link on the top menu or by singing up for a Free Trial by clicking on the “Free Trial” icon. They will then be prompted for filing necessary information which will be followed by an email verification process that will prompt them to complete the signup process.
 
-![login](/images/login.png)
+<p align="center">
+    ![login](/images/login.png)
+</p>
+
 ![img](blob:https://judosecurity.atlassian.net/c732457a-1b1a-4dcc-842e-b948345590fc#media-blob-url=true&id=8f7e1f6b-a946-485c-a1cf-da4339059f3a&collection=contentId-361889800&contextId=361889800&mimeType=image%2Fpng&name=image-20200728-064249.png&size=32071&width=440&height=656)
 
 
