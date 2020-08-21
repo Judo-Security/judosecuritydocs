@@ -194,13 +194,13 @@ Judo Security provides 2 different ways for using the data security solution:
 
   
 
--  **Web based management portal with a client:** Judo Security’s solution provides a web based portal that allows the customer to manage their organization settings, manage users, view logs, and monitor secure data creation and usage. Individual users can be provided credentials to log into the portal and manage the data they have secured, view logs and modify policies. In addition to the web based management portal Judo Security provides a client that can be deployed locally on the host system where data needs to be secured or where secure data needs to be accessed. The client can also be deployed alongside an application or service that needs to secure data or access secured data. Communication with the client can happen through a comprehensive set of CLI or associated APIs. The client is currently written in Node.js and Python.
+-  **Web based management portal with a client:** Judo Security’s solution provides a web based portal that allows the customer to manage their organization settings, manage users, view logs, and monitor secure data creation and usage. Individual users can be provided credentials to log into the portal and manage the data they have secured and view logs. In addition to the web based management portal, Judo Security provides a client that can be deployed locally on the host system where data can be secured or where secure data can be accessed from. The client can also be deployed alongside an application or service that needs to secure data or access secured data. Communication with the client can happen through a comprehensive set of CLI or associated APIs. The client is currently written in Node.js.
 
   
 
   
 
--  **Web based management portal and Web based client:** In this scenario the web based management portal functions exactly like it would in the scenario above. In addition to creating secure data with CLI or API calls, the user can secure, retrieve, delete and expire data (and secrets), as well as define and edit access policies and view audit logs of secure data access using the web based client. Note that some of the access policy controls are only available via CLI or API calls and cannot be delivered using the web client as the web client is running in cloud and therefore does not have access to the local host or application environment. This limits the ability to enforce policies based on variables in the local environment - like region, host ID and so on.
+-  **Web based management portal and Web based client:** In this scenario the web based management portal functions exactly like it would in the scenario above. In addition to creating secure data with CLI or API calls, the user can secure, retrieve, delete and expire data (and secrets), as well as define access policies and view audit logs of secure data access using the web based client. Note that some of the access policy controls are only available via CLI or API calls and cannot be delivered using the web client as the web client is running in cloud and therefore does not have access to the local host or application environment. This limits the ability to enforce policies based on variables in the local environment - like region, host ID and so on.
 
   
 
@@ -240,7 +240,7 @@ Individual users within an organization have access to a web-based interface to 
 
   
 
-In the mode where the user is securing data through the web interface Judo Security provides an installation-free ready-to-use Judo client to the users. The web interface allows users to execute basic actions like creation and retrieval through Judo Security’s web client, defining policy and reviewing audit logs.
+In the mode where the user is securing data through the web interface, Judo Security provides an installation-free ready-to-use Judo client to the users. The web interface allows users to execute basic actions like creation and retrieval through Judo Security’s web client, defining policy and reviewing audit logs.
 
   
 
@@ -249,7 +249,7 @@ In the mode where the user is securing data through the web interface Judo Secur
 
   
 
-The Judo client is available as Node.js or Python client. Both are open source and support equivalent functionalities. The clients enable basic data securing actions like encryption, retrieval and deletion. Judo clients enable users to define access policies for data. The policy framework enables controls based on IP address, Machine name, region and time. While Judo Security provides a robust policy definition framework, Judo can also inherit and apply policy that is defined in an external system. Current integrations include AWS IAM and will be expanded to include multiple other policy definition frameworks.
+The Judo client is available as an open source Node.js client. The client enables basic data securing actions like encryption, retrieval and deletion. Judo client also enables users to define access policies for data. The policy framework enables controls based on IP address, Machine name, region and time-to-live. While Judo Security provides a robust policy definition framework at present, it will also be expanded to be able to inherit and apply policy that is defined in an external system in the future.
 
   
 
@@ -266,7 +266,7 @@ The policies in Judo clients enable users to choose their preferred cloud servic
 
   
 
-Using Judo Security’s web client requires no installation as well. The web interface cannot be directly accessed by the individual user, but is always deployed and running in the cloud.
+Using Judo Security’s web client requires no installation. The web client cannot be directly accessed by the individual user, but is always deployed and running in the cloud.
 
   
 
@@ -292,11 +292,11 @@ The Judo web interface provides a ready-to-use client which does not require any
 
   
 
-The CLI client, however, needs to be configured after installation on user system before use. Detailed steps for Judo Security’s CLI client configuration is as under:
+The CLI client, however, needs to be configured after installation on user system before use. Detailed steps for Judo Security’s CLI client configuration are as under:
 
   
 
-1) Install the Node.js and check version by entering **node –v**
+1. Install the Node.js and check version by entering **node –v**
 
   
 
@@ -304,13 +304,13 @@ The CLI client, however, needs to be configured after installation on user syste
 
   
 
-2) Open the following link from the **“User profile”** of the Judo Security.
+2. Open the following link from the **“User profile”** of the Judo Security.
 
 https://www.npmjs.com/package/@judosecurity/judo-node-client
 
   
 
-3) Client setup
+3. Client setup
 
 Use NPM to install the judo client globally
 
@@ -324,13 +324,13 @@ npm install -g @judosecurity/judo-node-client
 
   
 
-4) Open the **judo-node-client** folder by using the following path:
+4. Open the **judo-node-client** folder by using the following path:
 
 **C:\Users\AI\AppData\Roaming\npm\node_modules\@judosecurity\judo-node-client**
 
   
 
-5) Copy the above path and paste it in PowerShell using cd and press Enter.
+5. Copy the above path and paste it in PowerShell using cd and press Enter.
 
   
 
@@ -338,7 +338,7 @@ npm install -g @judosecurity/judo-node-client
 
   
 
-6) Open **.config** folder from **Judo-node-client** folder
+6. Open **.config** folder from **Judo-node-client** folder
 
   
 
@@ -346,7 +346,7 @@ npm install -g @judosecurity/judo-node-client
 
   
 
-7) Open **service.json** file
+7. Open **service.json** file
 
   
 
@@ -354,19 +354,19 @@ npm install -g @judosecurity/judo-node-client
 
   
 
-8) Copy the link: [**https://stagging.judosecurity.com**](https://stagging.judosecurity.com/) and open it in new tab.
+8. Copy the link: [**https://beta.judosecurity.com**](https://beta.judosecurity.com/login) and open it in new tab.
 
   
 
-9) Enter the email id and password.
+9. Enter the appropriate login credentials.
 
   
 
-![email,password](/images/7.png)
+!![email,password](/images/7.png)
 
   
 
-10) Download the **client.json** file from the "User Profile" of Judo security by clicking on the "Download Client Configuration" button.
+10. Download the **client.json** file from the "User Profile" of Judo security by clicking on the "Download Client Configuration" button.
 
   
 
@@ -374,7 +374,7 @@ npm install -g @judosecurity/judo-node-client
 
   
 
-11) Copy the storage key from the downloaded client.json file and paste it in **client.json** file of client setup (Path: C:\Users\AI\AppData\Roaming\npm\node_modules\@judosecurity\judo-node-client)
+11. Copy the storage key and paste it in **client.json** file of client setup (Path: C:\Users\AI\AppData\Roaming\npm\node_modules\@judosecurity\judo-node-client)
 
   
 
@@ -407,7 +407,7 @@ Organization admins can invite users who they feel are important stakeholders to
   
 
 
-### Deactivate User
+### Disable User
 
   
 
@@ -495,7 +495,7 @@ Alternatively, users can view all the audit logs belonging to all the secrets fr
 
   
 
-![audit logs of all users](/images/16.png)
+!![audit logs of all users](/images/16.png)
 
   
 
@@ -519,7 +519,7 @@ Sensitive data that is to be protected by organizations or users is stored in th
 
   
 
-Users can create a secret running the following command in PowerShell in a system having Judo Security client installed.
+Users can create a secret running the following command in PowerShell in a system having Judo Security client installed. The same command can be used with any other command line interface supported by different operating systems.
 
   
 
@@ -562,12 +562,12 @@ User also has to define the access policy they want to use to govern the secret.
 
   
 
-![create secret](/images/18.png)
+!![create secret](/images/18.png)
 
   
 
 
-Finally, user has to upload the file to be stored as a secret or enter secret text. Clicking on ‘CREATE SECRET' will encrypt the secret with the defined access policies and shall be safely stored. User will receive a .judo file which will be used when they want to retrieve the secret.
+Finally, the user has to upload the file to be stored as a secret or enter secret text. Clicking on ‘CREATE SECRET' will encrypt the secret with the defined access policies and shall be safely stored. User will receive a .judo file which will be used when they want to retrieve the secret.
 
   
 
@@ -585,9 +585,9 @@ Finally, user has to upload the file to be stored as a secret or enter secret te
 
   
 
-Access policies are the rules that govern a particular secret and how it can be accessed. Unlike traditional secret management services, access policies in Judo provide a second layer of protection to sensitive data and give the user complete control of the secret.
+Access policies are the rules that govern a particular secret and how it can be accessed. Unlike traditional secret management services, access policies in Judo provide a second layer of protection to sensitive data and give the user complete control of the secure data object.
 
-Access policies are to be defined while creating a secret in the ‘WEB CLIENT’ tab in the left navigation menu. Once defined, access policies govern the created secret, and can be updated at any time by the organization admin or secret owner from the ‘SECRETS’ tab in the left navigation pane.
+Access policies are to be defined while creating a secret in the ‘WEB CLIENT’ tab in the left navigation menu. Once a secret is created with the defined access policies, the access policies cannot be updated.
 
   
 
@@ -609,6 +609,8 @@ IP Whitelisting restricts the secret to be accessed only from specific IP addres
 
 The expiration date governs when the secret will expire. Expiration of particular secret could be a few minutes, hours, days, or no expiration. Once expired, the shards of the key residing in different servers are destroyed, and the key cannot be reassembled. Consequently, the underlying secret becomes inaccessible.
 
+The organization admin can also manually expire a secret belonging to any user of the organization from the 'SECRETS' tab in the left navigation pane before the defined expiration time of the secret. Users can only manually expire the secrets that they have created.
+
   
 
   
@@ -627,21 +629,13 @@ This policy restricts secrets to be accessed only from specific machines whose n
 
   
 
-Region lockdown restricts access of secrets by geographic location. Selected regions can be as large as a country, or can be granulated to a state and even a city. With region lockdown policy, documents can be protected by sophisticated hackers residing at remote locations across the globe.
+Region lockdown restricts access of secrets by geographic location. Selected regions can be as large as a country, or can be granulated to a state and even a city. With region lockdown policy, documents can be protected from sophisticated hackers residing at remote locations across the globe.
 
   
 
   
 
-#### IAM Policy
 
-  
-
-Identity and Access Management Policy offers users a choice to store the shards of their secret key in their preferred cloud service. Judo Security offers integration with Amazon’s AWS, Google Cloud Service and Microsoft Azure. While creating a secret, the user decides in which server the shards of their secret key must be stored based on their preference influenced by their past experience with the service. This would improve reliability when a secret is to be retrieved.
-
-  
-
-  
 
 ### Read Secured Data
 
@@ -657,7 +651,7 @@ Secure data retrieval refers to accessing and viewing the secured data when nece
 
   
 
-Users can retrieve a secret using the following command in PowerShell in a system having Judo Security’s client installed.
+Users can retrieve a secret using the following command in PowerShell in a system having Judo Security’s client installed. The same command can be used with any other command line interface supported by different operating systems.
 
   
 
@@ -693,7 +687,7 @@ Secrets can be easily retrieved from the ‘RETRIEVE SECRET’ tab in the ‘WEB
 
   
 
-Secrets that have expired can also be deleted if they are no longer useful. Deleting secrets reduces the risk of unauthorized access of secrets in the future. Once deleted, secrets and the underlying data cannot be restored. Deletion of secrets is different for Judo Security’s web client and CLI client.
+Secrets that have expired can also be deleted if they are no longer useful. Deleting a secret reduces the risk of unauthorized access of secrets in the future. Once deleted, secrets and the underlying data cannot be restored. Deletion of secrets is different for Judo Security’s web client and CLI client.
 
   
 
@@ -703,7 +697,7 @@ Secrets that have expired can also be deleted if they are no longer useful. Dele
 
   
 
-Users can delete a secret using the following command in PowerShell in a system having Judo Security’s client installed.
+Users can delete a secret using the following command in PowerShell in a system having Judo Security’s client installed. The same command can be used with any other command line interface supported by different operating systems.
 
   
 
