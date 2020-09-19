@@ -236,7 +236,7 @@ Individual users within an organization have access to a web-based interface to 
 
   
 
-In the mode where the user is securing data through the web interface, Judo Security provides an installation-free ready-to-use Judo client to the users. The web interface allows users to execute basic actions like creation and retrieval through Judo Security’s web client, defining policy and reviewing audit logs.
+In the mode where the user is securing data through the web interface, Judo Security provides an installation-free ready-to-use Judo client to the users. The web interface allows users to execute basic actions like creation and retrieval through Judo Security’s web client, defining and viewing policy and reviewing audit logs.
 
   
 
@@ -627,7 +627,8 @@ This policy restricts secrets to be accessed only from specific machines whose n
 
 Region lockdown restricts access of secrets by geographic location. Selected regions can be as large as a country, or can be granulated to a state and even a city. With region lockdown policy, documents can be protected from sophisticated hackers residing at remote locations across the globe.
 
-  
+When using in congruence with Allowed IP Addresses, user must make sure that the defined IP addresses belong to the same region as they want to lock the secret by. If both IP addresses and Region Lockdown is defined on a secret, and if the IP addresses lie outside of the defined regions, the secret will become inaccessible.  
+
 
   
 
