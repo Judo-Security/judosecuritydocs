@@ -63,26 +63,30 @@ The following document provides an overview of Judo Security's patented secrets 
 		-  [Web Client](#web-client)
 
 	-  [Access Policy Definition](#access-policy-definition)
--  [Basics](#basics)
-		
--  [IP Allow List Policy Parameter](#ip-allow-list-policy-parameter)
-		
--  [Time To Live Policy Parameter](#time-to-live-policy-parameter)
-		
--  [Machine Name Policy Parameter](#machine-name-policy-parameter)
-		
--  [Region Lockdown Policy Parameter](#region-lockdown-policy-parameter)
-		
--  [Read Secured Data](#read-secured-data)
-	-  [CLI Client](#cli-client-1)
+		-	[Basics](#basics)	
+		-	[IP Allow List Policy Parameter](#ip-allow-list-policy-parameter)
+		-	[IP Deny List Policy Parameter](#ip-deny-list-policy-parameter)
+		-	[Time To Live Policy Parameter](#time-to-live-policy-parameter)
+		-	[Machine Name Policy Parameter](#machine-name-policy-parameter)	
+		-	[Region Lockdown Policy Parameter](#region-lockdown-policy-parameter)
+
+	 -  [Read Secured Data](#read-secured-data)
+	 
+		-  [CLI Client](#cli-client-1)
 	
-	-  [Web Client](#web-client-1)
+		-  [Web Client](#web-client-1)
 	
 	-  [Delete Secured Data](#delete-secured-data)
 
 		-  [CLI Client](#cli-client-2)
 
-		-  [Web Client](#web-client-2)
+		-  [Web Client](#web-client-2)	
+		
+	-  [Expire Secured Data](#expire-secured-data)
+
+		-  [CLI Client](#cli-client-3)
+
+		-  [Web Client](#web-client-3)
 
   
 
@@ -491,7 +495,7 @@ Alternatively, users can view all the audit logs belonging to all the secrets fr
 
   
 
-!![audit logs of all users](/images/16.png)
+![audit logs of all users](/images/16.png)
 
   
 
@@ -521,7 +525,7 @@ Users can create a secret running the following command in PowerShell in a syste
 
 ```powershell
 
-judo -c "name" --outputfile="output.judo" --input="secret" -n5 -m3 –e0 --config="client.json"
+judo -c "name" --outputfile="output.judo" --input="secret" -n5 -m3 -e2 --config="client.json"
 
 //'name' refers to secret name
 
@@ -543,27 +547,24 @@ judo -c "name" --outputfile="output.judo" --input="secret" -n5 -m3 –e0 --confi
 
   
 
-Users can create a secret using the ‘WEB CLIENT’ tab in the left navigation pane as under.
-
-  
-
-![web client](/images/17.png)
+Users can create a secret using the ‘CREATE SECRET’ action button from the HOME view or from the SECRETS view from the left navigation pane.
 
   
 
 
-‘CREATE SECRET’ tab will be opened in the web client where the user will be prompted to enter name of the secret, the number of shards they would want to break the secret into, and the minimum number of shards that would be necessary to recreate the secret. As each shard is stored on a different server node, it might be possible that not all servers are up when an attempt is made to reassemble the key. In such cases, if minimum number of shards mentioned are not fetched, secret cannot be accessed at that moment.
+‘CREATE SECRET’ tab will be opened in the web client where the user will be prompted to enter name of the secret, the number of shards they would want to break the secret into, and the minimum number of shards that would be necessary to recreate the secret. As each shard is stored on a different server node (conforming to the rules set by the organization admin), it might be possible that not all servers are up when an attempt is made to reassemble the key. In such cases, if minimum number of shards mentioned are not fetched, secret cannot be accessed at that moment.
 
 User also has to define the access policy they want to use to govern the secret.
 
   
 
-!![create secret](/images/18.png)
+![create secret](/images/18.png)
 
   
 
+The user then has to specify where they want their judo file to be stored. This file is required to recreate the secret and so must be preserved by the user. The user can either download the .judo file on their local system, or they can upload it directly to their specified cloud storage provider using a pre-authorized object access URL like Presigned URL or Shared Access Signature.
 
-Finally, the user has to upload the file to be stored as a secret or enter secret text. Clicking on ‘CREATE SECRET' will encrypt the secret with the defined access policies and shall be safely stored. User will receive a .judo file which will be used when they want to retrieve the secret.
+Finally, the user has to upload the file to be stored as a secret or enter secret text. The file to be encrypted can be uploaded either from the local system, or directly from the cloud using a pre-authorized object access URL. Clicking on ‘CREATE SECRET' will encrypt the secure data object with the defined access policies and shall be safely stored. User will receive a .judo file which will be used when they want to retrieve the secret.
 
   
 
@@ -583,7 +584,7 @@ Finally, the user has to upload the file to be stored as a secret or enter secre
 
 Access policies are the rules that govern a particular secret and how it can be accessed. Unlike traditional secret management services, access policies in Judo provide a second layer of protection to sensitive data and give the user complete control of the secure data object.
 
-Access policies are to be defined while creating a secret in the ‘WEB CLIENT’ tab in the left navigation menu. Once a secret is created with the defined access policies, the access policies cannot be updated.
+Access policies are to be defined while creating a secret. Access policies can be defined in both Judo's web client as well as the Node-CLI client by passing appropriate parameters. Once a secret is created with the defined access policies, the access policies cannot be updated and the user must create a new secret by encrypting the data object with the desired access policy to enforce updated policies.
 
   
 
@@ -593,7 +594,17 @@ Access policies are to be defined while creating a secret in the ‘WEB CLIENT�
 
   
 
-IP Whitelisting restricts the secret to be accessed only from specific IP addresses. This prevents hackers or other potential threats from accessing the secret even if they get hold of .judo file. Multiple IP addresses can be added here to ensure all the reliable stakeholders can access the secret.
+IP Whitelisting restricts the secret to be accessed only from specific IP addresses. This prevents hackers or other potential threats from accessing the secret even if they get hold of .judo file. Multiple IPv4 addresses can be added here to ensure all the reliable stakeholders can access the secret. Users can also specify range of IPv4 addresses using a CIDR block.
+
+  
+
+  
+
+#### IP Deny List Policy Parameter
+
+  
+
+IP blacklisting renders the secret inaccessible from specific IP addresses. This helps in restricting secret retrieval from known threats. Users can add multiple IPv4 addresses or a range of IPv4 addresses using a CIDR block to restrict access. If the same IP address is found in both blacklist and whitelist, **IP deny will take precedence over IP allow list.**
 
   
 
@@ -670,11 +681,7 @@ judo -r "input.judo"
 
   
 
-Secrets can be easily retrieved from the ‘RETRIEVE SECRET’ tab in the ‘WEB CLIENT’ main page. The user only has to upload the .judo file received while creating the secret and process it. If text had been encoded and stored as a secret, the original text is immediately displayed in the same view. And if a file had been encoded and stored as a secret, it is immediately downloaded once the .judo file is processed.
-
-  
-
-![retrieve secret](/images/20.png)
+Secrets can be easily retrieved using the ‘RETRIEVE SECRET’ action button from the HOME view or from the SECRETS view in the left navigation pane. The user only has to upload the .judo file received while creating the secret and process it. If text had been encoded and stored as a secret, the original text is immediately displayed in the same view. And if a file had been encoded and stored as a secret, it is immediately downloaded once the .judo file is processed.
 
   
 
@@ -717,3 +724,40 @@ Users can delete a secret using the web interface from the ‘SECRETS’ pane in
   
 
 ![delete secret](/images/21.png)
+
+  
+
+  
+
+### Expire Secured Data
+
+  
+
+Once their defined time-to-live has lapsed, secrets are deemed 'expired'. Secrets can also be manually expired by the user if they feel the secret data should no longer be accessible by respective stakeholders possessing the .judo file. Once expired, the encrypted secure data object cannot be decrypted.
+  
+
+  
+
+#### CLI Client
+
+  
+
+Users can delete a secret using the following command in PowerShell in a system having Judo Security’s client installed. The same command can be used with any other command line interface supported by different operating systems.
+
+  
+
+```powershell
+
+judo --expire "input.judo"
+
+// input.judo refers to the name given during creation of secret.
+
+```
+
+  
+
+#### Web Client
+
+  
+
+Secrets automatically expire after their defined time-to-live time period has lapsed. Alternatively, users can also manually expire secrets by clicking on the name of the secret from the 'SECRETS' tab in the left navigation pane and clicking on 'EXPIRE NOW' action button in the 'SECRET DETAILS' view.
