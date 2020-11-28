@@ -446,7 +446,7 @@ Organization admins can also standardize the IAM policy from the same view for t
 
   
 
-![configure nodes](/images/13.png)
+![configure nodes](/images/22.png)
 
   
 
@@ -473,7 +473,7 @@ The view provides a comprehensive list of secrets with important details display
 
   
 
-![view secrets](/images/14.png)
+![view secrets](/images/23.png)
 
   
 
@@ -487,7 +487,7 @@ Judo provides granular audit logs of all the secrets to ensure complete visibili
 
   
 
-![audit logs of specific user](/images/15.png)
+![audit logs of specific user](/images/24.png)
 
   
 
@@ -551,6 +551,10 @@ Users can create a secret using the ‘CREATE SECRET’ action button from the H
 
   
 
+![create secret](/images/25.png)
+
+  
+
 
 ‘CREATE SECRET’ tab will be opened in the web client where the user will be prompted to enter name of the secret, the number of shards they would want to break the secret into, and the minimum number of shards that would be necessary to recreate the secret. As each shard is stored on a different server node (conforming to the rules set by the organization admin), it might be possible that not all servers are up when an attempt is made to reassemble the key. In such cases, if minimum number of shards mentioned are not fetched, secret cannot be accessed at that moment.
 
@@ -558,7 +562,7 @@ User also has to define the access policy they want to use to govern the secret.
 
   
 
-![create secret](/images/18.png)
+![create secret](/images/26.png)
 
   
 
@@ -568,7 +572,7 @@ Finally, the user has to upload the file to be stored as a secret or enter secre
 
   
 
-![judo file](/images/19.png)
+![judo file](/images/27.png)
 
   
 
@@ -723,7 +727,7 @@ Users can delete a secret using the web interface from the ‘SECRETS’ pane in
 
   
 
-![delete secret](/images/21.png)
+![delete secret](/images/29.png)
 
   
 
@@ -742,7 +746,7 @@ Once their defined time-to-live has lapsed, secrets are deemed 'expired'. Secret
 
   
 
-Users can delete a secret using the following command in PowerShell in a system having Judo Security’s client installed. The same command can be used with any other command line interface supported by different operating systems.
+Users can manually expire a secret using the following command in PowerShell in a system having Judo Security’s client installed. The same command can be used with any other command line interface supported by different operating systems.
 
   
 
@@ -761,3 +765,11 @@ judo --expire "input.judo"
   
 
 Secrets automatically expire after their defined time-to-live time period has lapsed. Alternatively, users can also manually expire secrets by clicking on the name of the secret from the 'SECRETS' tab in the left navigation pane and clicking on 'EXPIRE NOW' action button in the 'SECRET DETAILS' view.
+
+  
+
+![judo file](/images/28.png)
+
+  
+
+  
